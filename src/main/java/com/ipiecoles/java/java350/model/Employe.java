@@ -11,7 +11,6 @@ import java.util.Objects;
 @Entity
 public class Employe {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -48,6 +47,10 @@ public class Employe {
      * @return
      */
     public Integer getNombreAnneeAnciennete() {
+        if(dateEmbauche == null || dateEmbauche.isAfter(LocalDate.now())){
+            return 0;
+        }
+
         return LocalDate.now().getYear() - dateEmbauche.getYear();
     }
 
