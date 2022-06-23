@@ -49,23 +49,6 @@ public class EmployeServiceIntegrationTest {
 
     }
 
-    @Test
-    public void testEmbauchePlusieursEmploye() throws EmployeException {
-        Employe employe = new Employe();
-        //mocking
-        Mockito.when(employeRepository.findLastMatricule()).thenReturn("12345");
-        Mockito.when(employeRepository.findByMatricule("C00001")).thenReturn(null);
-        Mockito.when(employeRepository.save(Mockito.any(Employe.class))).thenAnswer(AdditionalAnswers.returnsFirstArg());
-
-        //test
-        employeService.embaucheEmploye("Doe","John", Poste.COMMERCIAL, NiveauEtude.MASTER,1.0);
-
-        //verify
-        ArgumentCaptor<Employe> employeArgumentCaptor = ArgumentCaptor.forClass(Employe.class);
-        Mockito.verify(employeRepository).save(employeArgumentCaptor.capture());
-        Assertions.assertThat(employeArgumentCaptor.getValue().getPrenom()).isEqualTo("John");
-    }
-
     @BeforeEach
     @AfterEach
     public void purge(){
