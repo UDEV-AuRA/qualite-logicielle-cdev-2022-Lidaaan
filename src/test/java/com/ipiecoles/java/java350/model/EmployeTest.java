@@ -1,5 +1,6 @@
 package com.ipiecoles.java.java350.model;
 
+import com.ipiecoles.java.java350.exception.EmployeException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -94,7 +95,7 @@ public class EmployeTest {
 
     //Note : La méthode augmenter salaire n'est censé qu'augmenter le salaire
     @Test
-    public void testAugmenterSalairePositif(){
+    public void testAugmenterSalairePositif() throws EmployeException {
         Employe employe = new Employe("Doe", "John", "T1234", LocalDate.now(), 1300d, 1, 1.0);
         employe.augmenterSalaire(20);
 
@@ -106,10 +107,33 @@ public class EmployeTest {
         try{
             Employe employe = new Employe("Doe", "John", "T1234", LocalDate.now(), 1300d, 1, 1.0);
             employe.augmenterSalaire(-20);
-        }catch (NumberFormatException e){
+        }catch (EmployeException e){
+        }
+    }
+
+    @Test
+    public void testAugmenterSalaireNull(){
+        try {
+            Employe employe = new Employe("Doe", "John", "T1234", LocalDate.now(), 2000d, 1, 1.0);
+
+            employe.augmenterSalaire(0);
+        } catch (EmployeException e) {
             Assertions.assertThat(e.getMessage()).isEqualTo("Le pourcentage saisie doit être positif");
         }
     }
 
+    @ParameterizedTest
+    @CsvSource({
+            "2019, 9",
+            "2021, 11",
+            "2022, 11",
+            "2032, 10",
+    })
+    public void testGetNbRtt(Integer year, Integer nbRttCalcule){
+        Employe employe = new Employe();
 
+        Integer actual = employe.getNbRtt(LocalDate.of(year,1,1));
+
+        Assertions.assertThat(actual).isEqualTo(nbRttCalcule);
+    }
 }

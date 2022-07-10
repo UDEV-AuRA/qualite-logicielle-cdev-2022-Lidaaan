@@ -13,7 +13,6 @@ import java.util.Objects;
 @Entity
 public class Employe {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -60,39 +59,32 @@ public class Employe {
         return Entreprise.NB_CONGES_BASE + this.getNombreAnneeAnciennete();
     }
 
-    public Integer getNbRtt(){
-        return getNbRtt(LocalDate.now());
-    }
+    public Integer getNbRtt(LocalDate date) {
 
-    public Integer getNbRtt(LocalDate d) {
-        
-        int i1 = d.isLeapYear() ? 365 : 366;
-        int var = 104;
-        switch (LocalDate.of(d.getYear(), 1, 1).getDayOfWeek()) {
+        int nbrJourDansAnnee = date.isLeapYear() ? 365 : 366;
+        int nbrJourDansWeekEnd = 104;
+
+        switch (LocalDate.of(date.getYear(), 1, 1).getDayOfWeek()) {
             case THURSDAY:
-                if (d.isLeapYear()) {
-                    var = var + 1;
+                if (date.isLeapYear()) {
+                    nbrJourDansWeekEnd += 1;
                 }
                 break;
-
             case FRIDAY:
-
-                if (d.isLeapYear()) {
-                    var = var + 2;
+                if (date.isLeapYear()) {
+                    nbrJourDansWeekEnd += 2;
                 } else {
-                    var = var + 1;
+                    nbrJourDansWeekEnd += 1;
                 }
                 break;
-
             case SATURDAY:
-                var = var + 1;
-
+                nbrJourDansWeekEnd += 1;
                 break;
-            int monInt = (int) Entreprise.joursFeries(d).stream().filter(localDate ->
-                    localDate.getDayOfWeek().getValue() <= DayOfWeek.FRIDAY.getValue()).count();
-            return (int) Math.ceil((i1 - Entreprise.NB_JOURS_MAX_FORFAIT - var - Entreprise.NB_CONGES_BASE - monInt) * tempsPartiel);
-
         }
+        int nbrJourFerieDansAnnee = (int) Entreprise.joursFeries(date).stream().filter(localDate ->
+                localDate.getDayOfWeek().getValue() <= DayOfWeek.FRIDAY.getValue()).count();
+        return (int) Math.ceil((nbrJourDansAnnee - Entreprise.NB_JOURS_MAX_FORFAIT - nbrJourDansWeekEnd - Entreprise.NB_CONGES_BASE - nbrJourFerieDansAnnee) * tempsPartiel);
+
     }
 
     /**
@@ -131,10 +123,9 @@ public class Employe {
     }
 
     //Augmenter salaire
-    public void augmenterSalaire(double pourcentage){
+    public void augmenterSalaire(double pourcentage) throws EmployeException {
         if (pourcentage<=0){
-            //J'ai décidé de prendre cette exception car je ne trouvais pas d'exception pouvant être jeté lors d'un nombre négatif
-            throw new NumberFormatException("Le pourcentage saisie doit être positif");
+            throw new EmployeException("Le pourcentage saisie doit être positif");
         }else {
             this.salaire += this.salaire * pourcentage/100;
         }
@@ -269,3 +260,4 @@ public class Employe {
         return sb.toString();
     }
 }
+

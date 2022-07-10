@@ -167,4 +167,17 @@ public class EmployeServiceTest {
                 .hasMessage("L'employé de matricule C55556 existe déjà en BDD");
 
     }
+
+    @Test
+    public void testCalculPerformanceCommercialCATraiteNullOuInfAZero(){
+        String matricule = "";
+        Long caTraite = null;
+        Long objecttifCA = null;
+
+        try {
+            employeService.calculPerformanceCommercial(matricule,caTraite,objecttifCA);
+        } catch (EmployeException e) {
+            Assertions.assertThat(e.getMessage()).isEqualTo("Le chiffre d'affaire traité ne peut être négatif ou null !");
+        }
+    }
 }
