@@ -24,3 +24,40 @@
 23-06-2022 15:09:59.444 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Embauche d'un employé Doe John COMMERCIAL MASTER 1.0
 23-06-2022 15:09:59.445 [main] DEBUG c.i.j.java350.service.EmployeService.embaucheEmploye - Dernier matricule récupéré : 99999
 23-06-2022 15:09:59.446 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - Limite des 100000 matricules atteinte !
+24-06-2022 11:47:16.567 [main] INFO  c.i.j.j.i.EmployeServiceIntegrationTest.logStarting - Starting EmployeServiceIntegrationTest on Aberrant with PID 4904 (started by Lidaan in C:\Users\Lidaan\Documents\IPI\JAVA\qualite-logicielle-cdev-2022-Lidaaan)
+24-06-2022 11:47:16.568 [main] DEBUG c.i.j.j.i.EmployeServiceIntegrationTest.logStarting - Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+24-06-2022 11:47:16.568 [main] INFO  c.i.j.j.i.EmployeServiceIntegrationTest.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+24-06-2022 11:47:19.349 [main] INFO  c.i.j.j.i.EmployeServiceIntegrationTest.logStarted - Started EmployeServiceIntegrationTest in 2.962 seconds (JVM running for 4.193)
+24-06-2022 11:47:19.484 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Embauche d'un employé Doe John COMMERCIAL MASTER 1.0
+24-06-2022 11:47:19.512 [main] DEBUG c.i.j.java350.service.EmployeService.embaucheEmploye - Dernier matricule récupéré : null
+24-06-2022 11:47:19.512 [main] WARN  c.i.j.java350.service.EmployeService.embaucheEmploye - Aucun employé trouvé, utilisation du matricule initial
+24-06-2022 11:47:19.512 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Matricule calculé pour l'embauche de Doe John : C00001
+24-06-2022 11:47:19.527 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Salaire calculé : 2129.71
+24-06-2022 11:47:19.528 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé avant sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C00001', dateEmbauche=2022-06-24, salaire=2129.71, performance=1, tempsPartiel=1.0}
+24-06-2022 11:47:19.559 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé après sauvegarde : Employe{id=1, nom='Doe', prenom='John', matricule='C00001', dateEmbauche=2022-06-24, salaire=2129.71, performance=1, tempsPartiel=1.0}
+24-06-2022 11:47:19.823 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Embauche d'un employé Doe John COMMERCIAL MASTER 1.0
+24-06-2022 11:47:19.825 [main] DEBUG c.i.j.java350.service.EmployeService.embaucheEmploye - Dernier matricule récupéré : 12345
+24-06-2022 11:47:19.825 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Matricule calculé pour l'embauche de Doe John : C12346
+24-06-2022 11:47:19.825 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Salaire calculé : 2129.71
+24-06-2022 11:47:19.826 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé avant sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C12346', dateEmbauche=2022-06-24, salaire=2129.71, performance=1, tempsPartiel=1.0}
+24-06-2022 11:47:19.826 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé après sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C12346', dateEmbauche=2022-06-24, salaire=2129.71, performance=1, tempsPartiel=1.0}
+24-06-2022 11:47:19.835 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Embauche d'un employé Doe John COMMERCIAL MASTER 1.0
+24-06-2022 11:47:19.835 [main] DEBUG c.i.j.java350.service.EmployeService.embaucheEmploye - Dernier matricule récupéré : 55555
+24-06-2022 11:47:19.835 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Matricule calculé pour l'embauche de Doe John : C55556
+24-06-2022 11:47:19.836 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - L'employé de matricule C55556 existe déjà en BDD
+24-06-2022 11:47:19.839 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Embauche d'un employé Doe John COMMERCIAL MASTER 1.0
+24-06-2022 11:47:19.839 [main] DEBUG c.i.j.java350.service.EmployeService.embaucheEmploye - Dernier matricule récupéré : null
+24-06-2022 11:47:19.839 [main] WARN  c.i.j.java350.service.EmployeService.embaucheEmploye - Aucun employé trouvé, utilisation du matricule initial
+24-06-2022 11:47:19.840 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Matricule calculé pour l'embauche de Doe John : C00001
+24-06-2022 11:47:19.840 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Salaire calculé : 2129.71
+24-06-2022 11:47:19.840 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé avant sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C00001', dateEmbauche=2022-06-24, salaire=2129.71, performance=1, tempsPartiel=1.0}
+24-06-2022 11:47:19.840 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé après sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C00001', dateEmbauche=2022-06-24, salaire=2129.71, performance=1, tempsPartiel=1.0}
+24-06-2022 11:47:19.842 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Embauche d'un employé Doe John COMMERCIAL MASTER 0.5
+24-06-2022 11:47:19.843 [main] DEBUG c.i.j.java350.service.EmployeService.embaucheEmploye - Dernier matricule récupéré : 12345
+24-06-2022 11:47:19.843 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Matricule calculé pour l'embauche de Doe John : C12346
+24-06-2022 11:47:19.843 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Salaire calculé : 1064.85
+24-06-2022 11:47:19.843 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé avant sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C12346', dateEmbauche=2022-06-24, salaire=1064.85, performance=1, tempsPartiel=0.5}
+24-06-2022 11:47:19.844 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Employé après sauvegarde : Employe{id=null, nom='Doe', prenom='John', matricule='C12346', dateEmbauche=2022-06-24, salaire=1064.85, performance=1, tempsPartiel=0.5}
+24-06-2022 11:47:19.847 [main] INFO  c.i.j.java350.service.EmployeService.embaucheEmploye - Embauche d'un employé Doe John COMMERCIAL MASTER 1.0
+24-06-2022 11:47:19.848 [main] DEBUG c.i.j.java350.service.EmployeService.embaucheEmploye - Dernier matricule récupéré : 99999
+24-06-2022 11:47:19.848 [main] ERROR c.i.j.java350.service.EmployeService.embaucheEmploye - Limite des 100000 matricules atteinte !

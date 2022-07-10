@@ -3,6 +3,7 @@ package com.ipiecoles.java.java350.model;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.LocalDate;
@@ -90,5 +91,25 @@ public class EmployeTest {
         //Then
         Assertions.assertThat(prime).isEqualTo(primeCalculee);
     }
+
+    //Note : La méthode augmenter salaire n'est censé qu'augmenter le salaire
+    @Test
+    public void testAugmenterSalairePositif(){
+        Employe employe = new Employe("Doe", "John", "T1234", LocalDate.now(), 1300d, 1, 1.0);
+        employe.augmenterSalaire(20);
+
+        Assertions.assertThat(employe.getSalaire()).isEqualTo(1560);
+    }
+
+    @Test
+    public void testAugmenterSalaireNegatif(){
+        try{
+            Employe employe = new Employe("Doe", "John", "T1234", LocalDate.now(), 1300d, 1, 1.0);
+            employe.augmenterSalaire(-20);
+        }catch (NumberFormatException e){
+            Assertions.assertThat(e.getMessage()).isEqualTo("Le pourcentage saisie doit être positif");
+        }
+    }
+
 
 }
